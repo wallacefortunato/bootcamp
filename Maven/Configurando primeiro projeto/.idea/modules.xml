@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/Configurando primeiro projeto.iml" filepath="$PROJECT_DIR$/.idea/Configurando primeiro projeto.iml" />
+      <module fileurl="file://$PROJECT_DIR$/quick-start-maven/quick-start-maven.iml" filepath="$PROJECT_DIR$/quick-start-maven/quick-start-maven.iml" />
+    </modules>
+  </component>
+</project>
