@@ -22,13 +22,26 @@ public class Vetor {
     }
 
     //Método para adicionar um novo elemento ao final da última posição do vetor.
-    public void adicionaElementoUltimaPosicao (String element) throws Exception {
+    public void adicionaElemento (String element) throws Exception {
         if (this.tamanho < this.elementos.length){
             this.elementos[this.tamanho] = element;
             this.tamanho++;
         } else {
             throw new Exception("Vetor está cheio, não é possível adicionar um novo elemento.");
         }
+    }
+
+    //Adiciona um elemento em qualquer posição.
+    public void adicionaElemento (int posicao, String element) throws IllegalArgumentException {
+            if (verificaPosicao(posicao)){
+                for (int i = this.tamanho-1; i >= posicao; i--) { //O primeiro item a ser iterado é o último elemento preenchido do array.
+                    this.elementos[i+1] = this.elementos[i]; //O elemento posterior recebe o elemento atual.
+                }
+                this.elementos[posicao] = element;
+                this.tamanho++;
+            } else {
+                throw new IllegalArgumentException ("Posição informada é inválida");
+            }
     }
 
     public int getTamanho(){
@@ -62,11 +75,37 @@ public class Vetor {
         return s;
     }
 
+    //Busca elemento por posição
     public String buscaElemento(int posicao) throws IllegalArgumentException {
-        if (!(posicao >= 0 && posicao < getTamanho())){
+        if (!verificaPosicao(posicao)){
             throw new IllegalArgumentException("Posição informada é inválida");
         }
-
         return this.elementos[posicao];
+    }
+
+    private boolean verificaPosicao (int posicao){
+        return posicao >= 0 && posicao < getTamanho();
+    }
+
+    //Busca se o elemento passado como parâmetro existe no array
+    /*public boolean buscaElemento (String elemento){
+        for (int i = 0; i < this.tamanho; i++){
+            if (this.elementos[i].equals(elemento)){
+                return true;
+            }
+        }
+        return false;
+    }*/
+
+    //Busca a posição do elemento passado como parâmetro caso exista no array
+    public int buscaElemento (String elemento){
+        for (int i = 0; i < this.tamanho; i++){
+            if (this.elementos[i].equals(elemento)){
+                return i;
+            } else if (this.elementos[i].equalsIgnoreCase(elemento)){
+                return i;
+            }
+        }
+        return -1;
     }
 }

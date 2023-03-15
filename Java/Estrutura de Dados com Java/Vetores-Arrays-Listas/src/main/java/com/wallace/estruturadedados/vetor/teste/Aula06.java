@@ -2,7 +2,7 @@ package com.wallace.estruturadedados.vetor.teste;
 
 import com.wallace.estruturadedados.vetor.Vetor;
 
-public class Aula04 {
+public class Aula06 {
     public static void main(String[] args) throws Exception {
         Vetor vetor = new Vetor(10);
 
@@ -10,8 +10,6 @@ public class Aula04 {
         vetor.adicionaElemento("Elemento 2");
         vetor.adicionaElemento("Elemento 3");
 
-        System.out.println(vetor.getTamanho());
-
-        System.out.println(vetor);
+        System.out.println(vetor.buscaElemento("Elemento 2"));
     }
 }
