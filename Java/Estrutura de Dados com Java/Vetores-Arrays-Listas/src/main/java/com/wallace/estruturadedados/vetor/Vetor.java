@@ -1,5 +1,7 @@
 package com.wallace.estruturadedados.vetor;
 
+import java.util.Arrays;
+
 public class Vetor {
 
     private String[] elementos;
@@ -34,5 +36,32 @@ public class Vetor {
 
     public int getTamanho(){
         return this.tamanho;
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuilder s = montarString();
+
+        return s.toString();
+    }
+
+    //Método auxiliar para montar a visualização do vetor sem a presença de elementos nulos (somente com elementos reais)
+    private StringBuilder montarString(){
+        StringBuilder s = new StringBuilder();
+        s.append("[");
+
+        for (int i = 0; i < this.tamanho-1; i++) {
+            s.append(this.elementos[i]);
+            s.append(", ");
+        }
+
+        if (this.tamanho > 0){
+            s.append(this.elementos[this.tamanho-1]);
+        }
+
+        s.append("]");
+
+        return s;
     }
 }
