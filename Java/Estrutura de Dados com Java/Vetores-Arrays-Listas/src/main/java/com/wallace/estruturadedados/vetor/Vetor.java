@@ -1,7 +1,5 @@
 package com.wallace.estruturadedados.vetor;
 
-import java.util.Arrays;
-
 public class Vetor {
 
     private String[] elementos;
@@ -24,11 +22,10 @@ public class Vetor {
     }
 
     //Método para adicionar um novo elemento ao final da última posição do vetor.
-    public boolean adicionaElementoUltimaPosicao (String element) throws Exception {
+    public void adicionaElementoUltimaPosicao (String element) throws Exception {
         if (this.tamanho < this.elementos.length){
             this.elementos[this.tamanho] = element;
             this.tamanho++;
-            return true;
         } else {
             throw new Exception("Vetor está cheio, não é possível adicionar um novo elemento.");
         }
@@ -63,5 +60,13 @@ public class Vetor {
         s.append("]");
 
         return s;
+    }
+
+    public String buscaElemento(int posicao) throws IllegalArgumentException {
+        if (!(posicao >= 0 && posicao < getTamanho())){
+            throw new IllegalArgumentException("Posição informada é inválida");
+        }
+
+        return this.elementos[posicao];
     }
 }
