@@ -7,10 +7,10 @@ public class Aula03 {
         Vetor vetor = new Vetor(2);
 
         try {
-            vetor.adicionaElementoUltimaPosicao("Elemento 1");
-            vetor.adicionaElementoUltimaPosicao("Elemento 2");
-            vetor.adicionaElementoUltimaPosicao("Elemento 3");
-            vetor.adicionaElementoUltimaPosicao("Elemento 4");
+            vetor.adicionaElemento("Elemento 1");
+            vetor.adicionaElemento("Elemento 2");
+            vetor.adicionaElemento("Elemento 3");
+            vetor.adicionaElemento("Elemento 4");
         } catch (Exception e){
             e.printStackTrace();
         }
