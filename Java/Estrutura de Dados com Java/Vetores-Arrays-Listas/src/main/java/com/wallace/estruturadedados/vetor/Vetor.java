@@ -62,11 +62,34 @@ public class Vetor {
         return s;
     }
 
+    //Busca elemento por posição
     public String buscaElemento(int posicao) throws IllegalArgumentException {
         if (!(posicao >= 0 && posicao < getTamanho())){
             throw new IllegalArgumentException("Posição informada é inválida");
         }
 
         return this.elementos[posicao];
+    }
+
+    //Busca se o elemento passado como parâmetro existe no array
+    /*public boolean buscaElemento (String elemento){
+        for (int i = 0; i < this.tamanho; i++){
+            if (this.elementos[i].equals(elemento)){
+                return true;
+            }
+        }
+        return false;
+    }*/
+
+    //Busca a posição do elemento passado como parâmetro caso exista no array
+    public int buscaElemento (String elemento){
+        for (int i = 0; i < this.tamanho; i++){
+            if (this.elementos[i].equals(elemento)){
+                return i;
+            } else if (this.elementos[i].equalsIgnoreCase(elemento)){
+                return i;
+            }
+        }
+        return -1;
     }
 }
