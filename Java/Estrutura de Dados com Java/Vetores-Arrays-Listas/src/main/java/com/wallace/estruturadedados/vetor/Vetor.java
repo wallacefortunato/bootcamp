@@ -16,6 +16,7 @@ public class Vetor {
         for (int i = 0; i < this.elementos.length; i++) {
             if(this.elementos[i] == null){
                 this.elementos[i] = element;
+                this.tamanho++;
                 break;
             }
         }
@@ -24,19 +25,18 @@ public class Vetor {
     //Método para adicionar um novo elemento ao final da última posição do vetor (vetor com capacidade dinamica).
     public void adicionaElemento (String element) {
         if (this.tamanho >= this.elementos.length){
-            this.aumentaCapacidade();
+            this.dobraCapacidade();
         }
 
         this.elementos[this.tamanho] = element;
         this.tamanho++;
-
     }
 
     //Adiciona um elemento em qualquer posição (vetor com capacidade dinamica).
     public void adicionaElemento (int posicao, String element) throws IllegalArgumentException {
             if (verificaPosicao(posicao)){
 
-                this.aumentaCapacidade();
+                this.dobraCapacidade();
 
                 for (int i = this.tamanho-1; i >= posicao; i--) { //O primeiro item a ser iterado é o último elemento preenchido do array.
                     this.elementos[i+1] = this.elementos[i]; //O elemento posterior recebe o elemento atual.
@@ -46,6 +46,30 @@ public class Vetor {
             } else {
                 throw new IllegalArgumentException ("Posição informada é inválida");
             }
+    }
+
+    //Remove um elemento dada uma posicao
+    public void removeElemento (int posicao) throws IllegalArgumentException {
+        if (verificaPosicao(posicao)){
+            for (int i = posicao; i < this.tamanho-1; i++) {
+                this.elementos[i] = this.elementos[i+1];
+            }
+            this.elementos[this.tamanho-1] = null;
+            this.tamanho--;
+        } else {
+            throw new IllegalArgumentException ("Posição informada é inválida");
+        }
+    }
+
+    //Remove um elemento passado como parâmetro
+    public void removeElemento (String element) throws IllegalArgumentException {
+        int posicao = buscaElemento(element);
+
+        if (posicao == -1){
+            throw new IllegalArgumentException("O elemento não existe");
+        } else {
+            removeElemento(posicao);
+        }
     }
 
     public int getTamanho(){
@@ -88,7 +112,11 @@ public class Vetor {
     }
 
     private boolean verificaPosicao (int posicao){
-        return posicao >= 0 && posicao < getTamanho();
+        if (posicao >= 0 && posicao < getTamanho()){
+            return true;
+        } else {
+            return false;
+        }
     }
 
     //Busca se o elemento passado como parâmetro existe no array
@@ -114,7 +142,7 @@ public class Vetor {
     }
 
     //Aumentando dinamicamente a capacidade de um vetor
-    private void aumentaCapacidade() {
+    private void dobraCapacidade() {
         if (this.tamanho == this.elementos.length){
             String[] elementosNovos = new String[this.elementos.length*2];
             for (int i = 0; i < this.elementos.length; i++) {
@@ -122,5 +150,10 @@ public class Vetor {
             }
             this.elementos = elementosNovos;
         }
+    }
+
+    //Retorna o número de posições que o vetor comporta
+    public int getNumPosicoesAlocadas(){
+        return this.elementos.length;
     }
 }
