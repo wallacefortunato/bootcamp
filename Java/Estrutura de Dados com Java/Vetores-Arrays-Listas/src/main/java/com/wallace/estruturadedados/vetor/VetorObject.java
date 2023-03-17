@@ -84,6 +84,33 @@ public class VetorObject {
         return s.toString();
     }
 
+    //Busca elemento por posição
+    public Object buscaElemento(int posicao) throws IllegalArgumentException {
+        if (!verificaPosicao(posicao)){
+            throw new IllegalArgumentException("Posição informada é inválida");
+        }
+        return this.elementos[posicao];
+    }
+
+    //Busca a posição do elemento passado como parâmetro caso exista no array
+    public int buscaElemento (Object elemento){
+        for (int i = 0; i < this.tamanho; i++){
+            if (this.elementos[i].equals(elemento)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    //Retorna o número de posições que o vetor comporta
+    public int getNumPosicoesAlocadas(){
+        return this.elementos.length;
+    }
+
+
+    //=========================MÉTODOS AUXILIARES=========================
+
+
     //Método auxiliar para montar a visualização do vetor sem a presença de elementos nulos (somente com elementos reais)
     private StringBuilder montarString(){
         StringBuilder s = new StringBuilder();
@@ -103,32 +130,6 @@ public class VetorObject {
         return s;
     }
 
-    //Busca elemento por posição
-    public Object buscaElemento(int posicao) throws IllegalArgumentException {
-        if (!verificaPosicao(posicao)){
-            throw new IllegalArgumentException("Posição informada é inválida");
-        }
-        return this.elementos[posicao];
-    }
-
-    private boolean verificaPosicao (int posicao){
-        if (posicao >= 0 && posicao < getTamanho()){
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    //Busca a posição do elemento passado como parâmetro caso exista no array
-    public int buscaElemento (Object elemento){
-        for (int i = 0; i < this.tamanho; i++){
-            if (this.elementos[i].equals(elemento)){
-                return i;
-            }
-        }
-        return -1;
-    }
-
     //Aumentando dinamicamente a capacidade de um vetor
     private void dobraCapacidade() {
         if (this.tamanho == this.elementos.length){
@@ -140,8 +141,11 @@ public class VetorObject {
         }
     }
 
-    //Retorna o número de posições que o vetor comporta
-    public int getNumPosicoesAlocadas(){
-        return this.elementos.length;
+    private boolean verificaPosicao (int posicao){
+        if (posicao >= 0 && posicao < getTamanho()){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
