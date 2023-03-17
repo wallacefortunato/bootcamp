@@ -21,19 +21,23 @@ public class Vetor {
         }
     }
 
-    //Método para adicionar um novo elemento ao final da última posição do vetor.
-    public void adicionaElemento (String element) throws Exception {
-        if (this.tamanho < this.elementos.length){
-            this.elementos[this.tamanho] = element;
-            this.tamanho++;
-        } else {
-            throw new Exception("Vetor está cheio, não é possível adicionar um novo elemento.");
+    //Método para adicionar um novo elemento ao final da última posição do vetor (vetor com capacidade dinamica).
+    public void adicionaElemento (String element) {
+        if (this.tamanho >= this.elementos.length){
+            this.aumentaCapacidade();
         }
+
+        this.elementos[this.tamanho] = element;
+        this.tamanho++;
+
     }
 
-    //Adiciona um elemento em qualquer posição.
+    //Adiciona um elemento em qualquer posição (vetor com capacidade dinamica).
     public void adicionaElemento (int posicao, String element) throws IllegalArgumentException {
             if (verificaPosicao(posicao)){
+
+                this.aumentaCapacidade();
+
                 for (int i = this.tamanho-1; i >= posicao; i--) { //O primeiro item a ser iterado é o último elemento preenchido do array.
                     this.elementos[i+1] = this.elementos[i]; //O elemento posterior recebe o elemento atual.
                 }
@@ -107,5 +111,16 @@ public class Vetor {
             }
         }
         return -1;
+    }
+
+    //Aumentando dinamicamente a capacidade de um vetor
+    private void aumentaCapacidade() {
+        if (this.tamanho == this.elementos.length){
+            String[] elementosNovos = new String[this.elementos.length*2];
+            for (int i = 0; i < this.elementos.length; i++) {
+                elementosNovos[i] = this.elementos [i];
+            }
+            this.elementos = elementosNovos;
+        }
     }
 }
