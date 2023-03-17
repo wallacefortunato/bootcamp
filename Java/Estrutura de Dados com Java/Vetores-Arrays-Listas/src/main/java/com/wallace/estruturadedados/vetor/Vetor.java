@@ -21,7 +21,7 @@ public class Vetor {
         }
     }
 
-    //Método para adicionar um novo elemento ao final da última posição do vetor.
+    //Método para adicionar um novo elemento ao final da última posição do vetor (vetor com capacidade dinamica).
     public void adicionaElemento (String element) {
         if (this.tamanho >= this.elementos.length){
             this.aumentaCapacidade();
@@ -32,7 +32,7 @@ public class Vetor {
 
     }
 
-    //Adiciona um elemento em qualquer posição.
+    //Adiciona um elemento em qualquer posição (vetor com capacidade dinamica).
     public void adicionaElemento (int posicao, String element) throws IllegalArgumentException {
             if (verificaPosicao(posicao)){
 
