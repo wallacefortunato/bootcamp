@@ -1,11 +1,11 @@
 package com.wallace.estruturadedados.vetor.teste;
 
-import com.wallace.estruturadedados.vetor.Vetor;
+import com.wallace.estruturadedados.vetor.VetorString;
 
 public class Aula02 {
     public static void main(String[] args) {
 
-        Vetor vetor = new Vetor(5);
+        VetorString vetorString = new VetorString(5);
 
         int i = 0;
         i++;
