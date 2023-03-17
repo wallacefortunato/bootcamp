@@ -1,12 +1,12 @@
 package com.wallace.estruturadedados.vetor;
 
-public class Vetor {
+public class VetorString {
 
     private String[] elementos;
     private int tamanho;
 
     //Construtor
-    public Vetor (int capacidade){
+    public VetorString(int capacidade){
         this.elementos = new String[capacidade];
         this.tamanho = 0;
     }

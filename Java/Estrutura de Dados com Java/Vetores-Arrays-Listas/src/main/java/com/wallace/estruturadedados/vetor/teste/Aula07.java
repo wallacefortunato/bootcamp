@@ -1,36 +1,36 @@
 package com.wallace.estruturadedados.vetor.teste;
 
-import com.wallace.estruturadedados.vetor.Vetor;
+import com.wallace.estruturadedados.vetor.VetorString;
 
 public class Aula07 {
     public static void main(String[] args) {
-        Vetor vetor = new Vetor(10);
+        VetorString vetorString = new VetorString(10);
 
-        vetor.adicionaElemento("B");
-        vetor.adicionaElemento("C");
-        vetor.adicionaElemento("D");
-        vetor.adicionaElemento("F");
-        vetor.adicionaElemento("H");
+        vetorString.adicionaElemento("B");
+        vetorString.adicionaElemento("C");
+        vetorString.adicionaElemento("D");
+        vetorString.adicionaElemento("F");
+        vetorString.adicionaElemento("H");
 
 
-        System.out.println(vetor);
+        System.out.println(vetorString);
 
-        vetor.adicionaElemento(0, "A");
+        vetorString.adicionaElemento(0, "A");
 
-        System.out.println(vetor);
+        System.out.println(vetorString);
 
-        vetor.adicionaElemento(4, "E");
+        vetorString.adicionaElemento(4, "E");
 
-        System.out.println(vetor);
+        System.out.println(vetorString);
 
-        vetor.adicionaElemento(6, "G");
+        vetorString.adicionaElemento(6, "G");
 
-        System.out.println(vetor);
+        System.out.println(vetorString);
 
         String elemento = "F";
 
-        System.out.println("O elemento '" + elemento + "' está na posição " + vetor.buscaElemento(elemento));
+        System.out.println("O elemento '" + elemento + "' está na posição " + vetorString.buscaElemento(elemento));
 
-        System.out.println("O tamanho atual do vetor é: " + vetor.getTamanho());
+        System.out.println("O tamanho atual do vetorString é: " + vetorString.getTamanho());
     }
 }

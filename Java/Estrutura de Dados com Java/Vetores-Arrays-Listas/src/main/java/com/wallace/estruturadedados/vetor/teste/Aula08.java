@@ -1,18 +1,18 @@
 package com.wallace.estruturadedados.vetor.teste;
 
-import com.wallace.estruturadedados.vetor.Vetor;
+import com.wallace.estruturadedados.vetor.VetorString;
 
 public class Aula08 {
     public static void main(String[] args) throws Exception {
 
-        Vetor vetor = new Vetor(3);
+        VetorString vetorString = new VetorString(3);
 
-        vetor.adicionaElemento("B");
-        vetor.adicionaElemento("C");
-        vetor.adicionaElemento("D");
-        vetor.adicionaElemento("F");
-        vetor.adicionaElemento("H");
+        vetorString.adicionaElemento("B");
+        vetorString.adicionaElemento("C");
+        vetorString.adicionaElemento("D");
+        vetorString.adicionaElemento("F");
+        vetorString.adicionaElemento("H");
 
-        System.out.println(vetor);
+        System.out.println(vetorString);
     }
 }
