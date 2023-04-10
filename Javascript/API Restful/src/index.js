@@ -1,3 +1,5 @@
+require('./api/services/mongo');
+
 const Hapi = require("@hapi/hapi");
 const routes = require("./routes/routes.js");
 

@@ -5,7 +5,8 @@
   "main": "src/index",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon ./src/index"
+    "start": "nodemon ./src/index",
+    "docker-db": "docker run -p 27018:27017 --rm --name api-db -d mongo"
   },
   "keywords": [
     "Wallace",
@@ -14,7 +15,8 @@
   "author": "Wallace Fortunato",
   "license": "ISC",
   "dependencies": {
-    "@hapi/hapi": "^21.3.1"
+    "@hapi/hapi": "^21.3.1",
+    "mongoose": "^7.0.3"
   },
   "devDependencies": {
     "nodemon": "^2.0.22"
